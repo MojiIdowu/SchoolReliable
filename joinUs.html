@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Ajax</title>
+    <link rel="stylesheet" href="joinus.css">
+    <script type="text/javascript">
+
+    function ajaxfunction()
+    {
+        var ajax= new XMLHttpRequest();
+        ajax.onreadystatechange =function ()
+        {
+            if(this.readyState==4 && this.status==200)
+            {
+               // alert(this.responseText);
+                document.getElementById("test").innerHTML=this.responseText
+            }
+        };
+        ajax.open("POST", "text.txt", true);
+        ajax.send();
+    }
+
+    </script>
+</head>
+<body>
+ <div class="register">Register with School Reliable today!</div>
+
+<form>
+    <input placeholder="FirstName" required="" type="text" />
+    <input placeholder="LastName" required="" type="text" />
+    <input name="customerEmail" placeholder="Email" type="email" />
+    <input name="customerPhone" pattern="[0-9]{3}-[0-9]{3}-[0-9]{4}" placeholder="Phone" type="tel" />
+    <br>
+    <br>
+    <button type="button" onclick="ajaxfunction()">SIGN UP </button>
+    <div id="test"></div>
+
+</form>
+
+</body>
+</html>
